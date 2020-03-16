@@ -16,3 +16,7 @@ INSERT INTO Fornecedores VALUES ('Caroline Silva', 'Av São Paulo', 'Salvador', '
 INSERT INTO Fornecedores VALUES ('Guilherme Staff', 'Rua Central', 'Porto Alegre', 'RS');
 INSERT INTO Fornecedores VALUES ('Isabela Moraes', 'Av Juiz Grande', 'Curitiba', 'PR');
 INSERT INTO Fornecedores VALUES ('Francisco Accerr','Av Paulista','São Paulo','SP');
+
+SELECT * FROM Fornecedores;
+
+SELECT Cidade FROM Fornecedores ORDER BY Cidade
