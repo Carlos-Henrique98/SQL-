@@ -1,0 +1,59 @@
+CREATE DATABASE CPF_Empregados;
+
+USE CPF_Empregados;
+
+CREATE TABLE Empregados(
+CPF VARCHAR(15) PRIMARY KEY,
+Enome VARCHAR(60) NOT NULL,
+Salario DECIMAL(6,2) NOT NULL,
+Cpf_supervisor VARCHAR(15),
+DNumero INT NOT NULL
+);
+
+CREATE TABLE Departamentos(
+DNumero INT PRIMARY KEY IDENTITY(1010,10),
+DNome VARCHAR(60) NOT NULL,
+CPF VARCHAR(15) FOREIGN KEY REFERENCES Empregados (CPF)
+);
+
+CREATE TABLE Trabalha(
+CPF_EMP VARCHAR(15) FOREIGN KEY REFERENCES Empregados (CPF),
+PNumero INT NOT NULL
+);
+
+CREATE TABLE Projetos(
+PNumero INT PRIMARY KEY IDENTITY(2010,10),
+PNome VARCHAR(45) NOT NULL,
+DNumero INT FOREIGN KEY  REFERENCES Departamentos (DNumero),
+);
+
+INSERT INTO Empregados VALUES ('049382234322','João Silva', 2350, '2434332222', 1010);
+INSERT INTO Empregados VALUES ('586733922290', 'Marioo Silveira', 3500, '2434332222', 1010);
+INSERT INTO Empregados VALUES ('2434332222', 'Aline Barros', 2350,' ', 1010);
+INSERT INTO Empregados VALUES ('1733332162','Tulio Vidal', 8350,' ', 1020);
+INSERT INTO Empregados VALUES ('4244435272','Juliana Rodrigues', 3310,' ', 1020);
+INSERT INTO Empregados VALUES ('1014332672', 'Natalia Marques', 2900,' ', 1010);
+
+INSERT INTO Departamentos VALUES ( 'Pesquisa', '049382234322');
+INSERT INTO Departamentos VALUES ( 'Ensino', '2434332222');
+
+INSERT INTO Trabalha VALUES ('49382234322', 2010);
+INSERT INTO Trabalha VALUES ('586733922290', 2020);
+INSERT INTO Trabalha VALUES ('49382234322', 2020);
+
+INSERT INTO Projetos VALUES ( 'Alpha', 1010);
+INSERT INTO Projetos VALUES ('Beta', 1020);
+
+SELECT E.CPF, E.Enome, D.DNome
+FROM Empregados E INNER JOIN Departamentos D ON E.CPF = D.CPF
+WHERE Cpf_supervisor = ' ';
+
+SELECT * FROM Empregados;
+SELECT * FROM Projetos;
+SELECT * FROM Trabalha;
+SELECT * FROM Departamentos;
+
+DROP TABLE Empregados;
+DROP TABLE Projetos;
+DROP TABLE Trabalha;
+DROP TABLE Departamentos ;
