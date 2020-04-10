@@ -31,6 +31,6 @@ INSERT INTO Produtos VALUES ('Single bed', 750, 460,1);
 SELECT * FROM Produtos;
 SELECT * FROM Categorias;
 
-SELECT NomeC, SUM(Quantidade) AS Soma FROM Categorias C
+SELECT NomeC AS Nome, SUM(Quantidade) AS Soma FROM Categorias C
 INNER JOIN Produtos P ON C.IdCategoria = P.IdCategoria
 GROUP BY C.NomeC
