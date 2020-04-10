@@ -43,6 +43,8 @@ SELECT * FROM TurnoTrabalho;
 SELECT * FROM Presencas;
 SELECT * FROM Doutor;
 
-SELECT D.NomeDoutor, ROUND(SUM((P.Horas * 150) + (((P.Horas * 150) * T.Bonus) / 100)),1 ) AS Salario
+SELECT NomeDoutor, ROUND(SUM((P.Horas * 150) + (((P.Horas * 150) * T.Bonus) / 100)),1 ) AS Salario
 FROM Doutor D INNER JOIN Presencas P ON D.IdDoutor = P.IdDoutor
 INNER JOIN TurnoTrabalho T ON T.IdTurnoTrabalho =P.IdTurnoTrabalho
+GROUP BY D.IdDoutor
+ORDER BY Salario DESC
