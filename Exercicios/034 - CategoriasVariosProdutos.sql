@@ -11,8 +11,8 @@ CREATE TABLE Produtos(
 IdProdutos INT PRIMARY KEY IDENTITY,
 NomeP VARCHAR(255) NOT NULL,
 Quantidade INT NOT NULL,
-Preco DECIMAL(4,2) NOT NULL,
-IdCategoria INT FOREIGN KEY REFERENCES Categorias (IdCategorias)
+Preco DECIMAL(7,2) NOT NULL,
+IdCategorias INT FOREIGN KEY REFERENCES Categorias (IdCategorias)
 );
 
 INSERT INTO Produtos VALUES ('Blue Chair', 30,300.00,9);
@@ -31,3 +31,10 @@ INSERT INTO Categorias VALUES ('Wood');
 
 SELECT * FROM Categorias;
 SELECT * FROM Produtos;
+
+DROP TABLE Produtos;
+
+SELECT P.NomeP AS Produto, C.NomeC AS Categoria FROM Produtos P
+INNER JOIN Categorias C ON P.IdCategorias = C.IdCategorias
+WHERE P.Quantidade > 100 AND P.IdCategorias IN(1,2,3,6,9)
+
