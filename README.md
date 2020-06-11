@@ -1,6 +1,8 @@
 # SQL-
 Exercicios / Exercises - SQL - UriJudge
 *WHERE;
+*UPDATE;
+*COUNT;
 *ALTER;
 *SELECT;
 *DROP;
