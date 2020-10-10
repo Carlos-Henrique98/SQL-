@@ -1,13 +1,15 @@
 ## SQL-
 ### Exercicios / Exercises 
 ### Topicos Usados: 
-#### WHERE;
-#### UPDATE;
-#### COUNT;
-#### ALTER;
-#### SELECT;
-#### DROP;
-#### INSERT;
-#### ORDER BY;
-#### GROUP BY;
-
+- WHERE;
+- UPDATE;
+- COUNT;
+- ALTER;
+- SELECT;
+- DROP;
+- INSERT;
+- ORDER BY;
+- GROUP BY;
+- AS
+- SET
+- INNER JOIN
